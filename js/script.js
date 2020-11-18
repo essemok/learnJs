@@ -1,10 +1,10 @@
-const number = prompt('Сколько фильмов вы уже посмотрели?', '0');
+const filmsWatched = +prompt('Сколько фильмов вы уже посмотрели?', '0');
 
-console.log(number);
+console.log(filmsWatched);
 
 
 const personalMovieDb = {
-  count: number,
+  count: filmsWatched,
   movies: {},
   actors: {},
   genres: [],
