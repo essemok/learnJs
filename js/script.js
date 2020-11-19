@@ -13,13 +13,30 @@ const personalMovieDb = {
 
 console.log(personalMovieDb)
 
-const firstMovie = prompt('Один из последних просмотренных фильмов?', ''),
-      firstRating = prompt('На сколько оцените его?', ''),
-      secondMovie = prompt('Один из последних просмотренных фильмов?', ''),
-      secondRating = prompt('Насколько оцените его?', '');
+for (let i = 0; i < 2; i++) {
+  const movie = prompt('Один из последних просмотренных фильмов?', ''),
+        rating = prompt('Один из последних просмотренных фильмов?', '');
+  if (null != movie && null != rating && '' != movie && '' != rating && movie.length < 50 && rating.length < 50) {
+    personalMovieDb.movies[movie] = rating;
+  } else {
+    i--;
+    alert('Incorrect data. Result cant be empty string or string longer than 50 symbols. Please answer one more time.')
+  }
+}
 
+console.log(personalMovieDb.movies);
 
-personalMovieDb.movies[firstMovie] = firstRating;
-personalMovieDb.movies[secondMovie] = secondRating;
-
-console.log(movies);
+switch (true) {
+  case (personalMovieDb.count < 10):
+    console.log('Просмотрено довольно мало фильмов');
+    break;
+  case (personalMovieDb.count > 10 && personalMovieDb.count < 30):
+    console.log('Вы классический зритель');
+    break;
+  case (personalMovieDb.count > 30):
+    console.log('Вы киноман');
+    break;
+  default:
+    console.log('Произошла ошибка');
+    break;
+}
