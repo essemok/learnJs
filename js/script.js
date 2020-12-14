@@ -28,12 +28,27 @@ function removeAdvBlock() {
     document.getElementsByClassName('promo__adv')[0].remove();
 }
 
-function changeMainFilmGenre(genre) {
+function changePromoFilmGenre(genre) {
     document.querySelector('.promo__genre').textContent = genre;
 }
 
+function changePromoFilmBackground(backgroundPath) {
+    document.querySelector('.promo__bg').style.backgroundImage = backgroundPath;
+}
+
+function replacedWatchedFilmsList(newFilmList) {
+    const oldList = document.querySelectorAll('.promo__interactive-item');
+
+    oldList.forEach((item, i) => {
+        item.textContent = (i+1) + ': ' + newFilmList.movies[i];
+    });
+}
+
+console.dir(document.querySelector('.promo__bg'));
 removeAdvBlock();
-changeMainFilmGenre('драма');
+changePromoFilmGenre('драма');
+changePromoFilmBackground('../img/bg.jpg');
+replacedWatchedFilmsList(movieDB);
 
 
 
