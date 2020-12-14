@@ -28,7 +28,12 @@ function removeAdvBlock() {
     document.getElementsByClassName('promo__adv')[0].remove();
 }
 
+function changeMainFilmGenre(genre) {
+    document.querySelector('.promo__genre').textContent = genre;
+}
+
 removeAdvBlock();
+changeMainFilmGenre('драма');
 
 
 
