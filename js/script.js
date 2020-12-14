@@ -48,10 +48,9 @@ function replacedWatchedFilmsList(newFilmList) {
     });
 }
 
-console.dir(document.querySelector('.promo__bg'));
 removeAdvBlock();
 changePromoFilmGenre('драма');
-changePromoFilmBackground('../img/bg.jpg');
+changePromoFilmBackground('url("img/bg.jpg")');
 replacedWatchedFilmsList(movieDB);
 
 
