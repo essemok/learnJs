@@ -25,7 +25,11 @@ const movieDB = {
 };
 
 function removeAdvBlock() {
-    document.getElementsByClassName('promo__adv')[0].remove();
+    const adv = document.querySelectorAll('.promo__adv img');
+
+    adv.forEach(item => {
+       item.remove();
+    });
 }
 
 function changePromoFilmGenre(genre) {
