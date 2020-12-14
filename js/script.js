@@ -24,3 +24,12 @@ const movieDB = {
     ]
 };
 
+function removeAdvBlock() {
+    document.getElementsByClassName('promo__adv')[0].remove();
+}
+
+removeAdvBlock();
+
+
+
+
