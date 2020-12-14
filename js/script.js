@@ -41,10 +41,11 @@ function changePromoFilmBackground(backgroundPath) {
 }
 
 function replacedWatchedFilmsList(newFilmList) {
-    const oldList = document.querySelectorAll('.promo__interactive-item');
+    const oldList = document.querySelectorAll('.promo__interactive-item'),
+          sortedNewList = newFilmList.movies.sort();
 
     oldList.forEach((item, i) => {
-        item.textContent = (i+1) + ': ' + newFilmList.movies[i];
+        item.textContent = (i+1) + ': ' + sortedNewList[i];
     });
 }
 
