@@ -40,19 +40,25 @@ function changePromoFilmBackground(backgroundPath) {
     document.querySelector('.promo__bg').style.backgroundImage = backgroundPath;
 }
 
-function replacedWatchedFilmsList(newFilmList) {
-    const oldList = document.querySelectorAll('.promo__interactive-item'),
-          sortedNewList = newFilmList.movies.sort();
+function replacedWatchedFilmsList(moviesList) {
+    const pageMovieList = document.querySelector('.promo__interactive-list');
 
-    oldList.forEach((item, i) => {
-        item.textContent = (i+1) + ': ' + sortedNewList[i];
+    pageMovieList.innerHTML = '';
+    moviesList.sort();
+
+    moviesList.forEach((film, i) => {
+        pageMovieList.innerHTML += `
+             <li class="promo__interactive-item">${i+1}: ${film}
+                 <div class="delete"></div>
+            </li>
+        `;
     });
 }
 
 removeAdvBlock();
 changePromoFilmGenre('драма');
 changePromoFilmBackground('url("img/bg.jpg")');
-replacedWatchedFilmsList(movieDB);
+replacedWatchedFilmsList(movieDB.movies);
 
 
 
